@@ -52,6 +52,7 @@ export const Description = styled.p`
   text-align: center;
   line-height: 1.5;
   font-size: 1.5rem;
+  max-width: 70vmin;
 `;
 
 export const Code = styled.code`
