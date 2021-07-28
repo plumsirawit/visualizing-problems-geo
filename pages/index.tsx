@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-import { Container, Description, Title, Code, Em } from "../components/commons";
-import { Navbar } from "../components/Navbar";
+import { Container, Description, Title, Em } from "../components/commons";
 import { Panel } from "../components/Panel";
 
 const MainTable = styled.table`
