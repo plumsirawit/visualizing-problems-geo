@@ -6,7 +6,6 @@ import { Panel } from "../components/Panel";
 export default function Home() {
   return (
     <Container>
-      <Navbar />
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -18,12 +17,8 @@ export default function Home() {
         </Title>
 
         <Description>
-          Get started by editing <Code>pages/index.js</Code>
+          <a>Get started</a>
         </Description>
-      </Panel>
-
-      <Panel backgroundColor="#383f46">
-        <Title>See Examples</Title>
       </Panel>
     </Container>
   );
