@@ -15,18 +15,21 @@ const PanelWrapper = styled.div`
   position: relative;
 `;
 const PanelOverlay = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
   ${(props: { flex?: boolean }) =>
     props.flex
-      ? `display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  `
-      : `inset: 0px;`}
+      ? `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    `
+      : `
+    inset: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    `}
 `;
 const PanelDecorator = styled.div`
   position: absolute;
