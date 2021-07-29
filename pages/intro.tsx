@@ -5,7 +5,7 @@ import { Container, Description, Title, Em } from "../components/commons";
 import { Navbar } from "../components/Navbar";
 import { Panel } from "../components/Panel";
 
-export default function Home() {
+export default function Intro() {
   return (
     <Container>
       <Navbar />

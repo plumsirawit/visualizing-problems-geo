@@ -35,6 +35,7 @@ export const Title = styled.h1`
   text-align: center;
   max-width: 90vmin;
   word-wrap: normal;
+  ${(props) => props.color && `color: ${props.color};`}
 
   & a {
     color: #0070f3;
@@ -48,11 +49,17 @@ export const Title = styled.h1`
   }
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   text-align: center;
   line-height: 1.5;
   font-size: 1.5rem;
   max-width: 70vmin;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  & p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const Code = styled.code`
