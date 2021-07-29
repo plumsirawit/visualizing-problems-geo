@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link, { LinkProps } from "next/link";
+import { useRouter } from "next/router";
 
 const NavbarWrapper = styled.div`
   height: 8rem;
@@ -28,24 +29,48 @@ const NavbarItemInner = styled.a`
   }
   font-family: "Roboto Mono", monospace;
   margin: 10px;
+  ${(props) => props.color && `color: ${props.color}`}
 `;
-const NavbarItem = (props: React.PropsWithChildren<LinkProps>) => (
+const NavbarItem = (
+  props: React.PropsWithChildren<LinkProps> & { color?: string }
+) => (
   <Link href={props.href}>
-    <NavbarItemInner href="#">{props.children}</NavbarItemInner>
+    <NavbarItemInner href="#" color={props.color}>
+      {props.children}
+    </NavbarItemInner>
   </Link>
 );
 
 export const Navbar = () => {
+  const router = useRouter();
   return (
     <NavbarWrapper>
       Logo
       <NavbarInner>
-        <NavbarItem href="/intro">Intro</NavbarItem>
-        <NavbarItem href="/intro">P1</NavbarItem>
-        <NavbarItem href="/intro">P2</NavbarItem>
-        <NavbarItem href="/intro">P3</NavbarItem>
-        <NavbarItem href="/intro">P4</NavbarItem>
-        <NavbarItem href="/intro">P5</NavbarItem>
+        <NavbarItem
+          href="/intro"
+          color={router.route === "/intro" ? "#15ff79" : undefined}
+        >
+          Intro
+        </NavbarItem>
+        <NavbarItem
+          href="/p1"
+          color={router.route === "/p1" ? "#15ff79" : undefined}
+        >
+          P1
+        </NavbarItem>
+        <NavbarItem
+          href="/p2"
+          color={router.route === "/p2" ? "#15ff79" : undefined}
+        >
+          P2
+        </NavbarItem>
+        <NavbarItem
+          href="/p3"
+          color={router.route === "/p3" ? "#15ff79" : undefined}
+        >
+          P3
+        </NavbarItem>
       </NavbarInner>
     </NavbarWrapper>
   );

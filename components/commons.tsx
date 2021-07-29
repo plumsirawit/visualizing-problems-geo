@@ -56,13 +56,15 @@ export const Description = styled.p`
 `;
 
 export const Code = styled.code`
-  color: black;
-  background: #fafafa;
+  background-color: #292f35;
   border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  font-family: "Roboto Mono", monospace;
+  transition: background-color 0.5s ease;
+  &:hover {
+    background-color: #383f46;
+  }
 `;
 
 export const Em = styled.em`

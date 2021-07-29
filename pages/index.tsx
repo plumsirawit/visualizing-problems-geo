@@ -1,19 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-import { Container, Description, Title, Em } from "../components/commons";
+import { Container, Description, Title, Em, Code } from "../components/commons";
 import { Panel } from "../components/Panel";
 
 const MainTable = styled.table`
   border-collapse: separate;
   border-spacing: 1rem;
-  margin: 1rem;
+  margin-top: 2.5rem;
 
   & tr {
     height: 4rem;
-  }
-  & td:hover {
-    border-color: #15ff79;
+    font-family: "Roboto Mono", monospace;
   }
   & td {
     min-width: 4rem;
@@ -23,12 +21,13 @@ const MainTable = styled.table`
   }
   & td + td {
     cursor: pointer;
-    background-color: #12141a;
     border-radius: 10px;
-    border: 1px solid #12141a;
-    transition: border-color 0.5s ease;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
     text-align: left;
-    min-width: 20vw;
+    min-width: 40vmin;
+  }
+  & td + td:hover {
+    background-color: #12141a;
   }
 `;
 
@@ -46,8 +45,10 @@ export default function Home() {
         </Title>
 
         <Description>
-          From just a change of perspectives, most of the problems could be
-          viewed in a whole new way.
+          A talk by{" "}
+          <a href="https://github.com/plumsirawit">
+            <Code>plumsirawit</Code>
+          </a>
         </Description>
       </Panel>
 
@@ -77,18 +78,6 @@ export default function Home() {
               <td>P3</td>
               <Link href="/p3">
                 <td>Grid Marble</td>
-              </Link>
-            </tr>
-            <tr>
-              <td>P4</td>
-              <Link href="/p4">
-                <td>Mixture</td>
-              </Link>
-            </tr>
-            <tr>
-              <td>P5</td>
-              <Link href="/p5">
-                <td>Time is Money</td>
               </Link>
             </tr>
           </tbody>
