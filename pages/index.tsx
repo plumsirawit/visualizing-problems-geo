@@ -77,7 +77,7 @@ export default function Home() {
             <tr>
               <td>P3</td>
               <Link href="/p3">
-                <td>Grid Marble</td>
+                <td>timeismoney</td>
               </Link>
             </tr>
           </tbody>
