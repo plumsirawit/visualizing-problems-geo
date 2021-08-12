@@ -45,7 +45,7 @@ export const Navbar = () => {
   const router = useRouter();
   return (
     <NavbarWrapper>
-      Logo
+      <NavbarItem href="/">Home</NavbarItem>
       <NavbarInner>
         <NavbarItem
           href="/intro"
