@@ -77,3 +77,12 @@ export const Code = styled.code`
 export const Em = styled.em`
   color: #15ff79;
 `;
+
+interface IResourceLinkProps {
+  url: string;
+}
+export const ResourceLink = ({ url }: IResourceLinkProps) => (
+  <a target="_blank" href={url}>
+    <Code>{url}</Code>
+  </a>
+);

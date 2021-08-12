@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Container, Description, Title, Em } from "../components/commons";
+import { Container, Description, Title } from "../components/commons";
 import { Navbar } from "../components/Navbar";
 import { Panel } from "../components/Panel";
 import { ShowSolution } from "../components/ShowSolution";
