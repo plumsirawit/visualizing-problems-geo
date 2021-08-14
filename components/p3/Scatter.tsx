@@ -64,6 +64,7 @@ export const Scatter = ({ nodeCount, edges }: IScatterProps) => {
         width,
         height,
         grid: true,
+        disableZoom: true,
         xAxis: {
           label: "SumTime",
           domain: [
