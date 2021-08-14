@@ -36,7 +36,9 @@ export default function P2() {
     <Container>
       <Navbar />
       <Head>
-        <title>Create Next App</title>
+        <title>
+          Visualizing Problems from a Geometrical Point of View | P2
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

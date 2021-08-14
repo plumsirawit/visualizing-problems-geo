@@ -22,7 +22,9 @@ export default function P1() {
     <Container>
       <Navbar />
       <Head>
-        <title>Create Next App</title>
+        <title>
+          Visualizing Problems from a Geometrical Point of View | P1
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

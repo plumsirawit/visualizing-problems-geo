@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <Container>
       <Head>
-        <title>Create Next App</title>
+        <title>Visualizing Problems from a Geometrical Point of View</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

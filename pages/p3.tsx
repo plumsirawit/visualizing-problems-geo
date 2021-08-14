@@ -33,7 +33,9 @@ export default function P3() {
     <Container>
       <Navbar />
       <Head>
-        <title>Create Next App</title>
+        <title>
+          Visualizing Problems from a Geometrical Point of View | P3
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -10,7 +10,9 @@ export default function Intro() {
     <Container>
       <Navbar />
       <Head>
-        <title>Create Next App</title>
+        <title>
+          Visualizing Problems from a Geometrical Point of View | Introduction
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

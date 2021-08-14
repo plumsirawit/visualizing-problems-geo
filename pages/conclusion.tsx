@@ -17,7 +17,9 @@ export default function Conclusion() {
     <Container>
       <Navbar />
       <Head>
-        <title>Create Next App</title>
+        <title>
+          Visualizing Problems from a Geometrical Point of View | Conclusion
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
