@@ -49,6 +49,28 @@ export const Title = styled.h1`
   }
 `;
 
+export const Subtitle = styled.h3`
+  margin-top: 3rem;
+  margin-bottom: 0.1rem;
+  line-height: 1.15;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 90vmin;
+  word-wrap: normal;
+  ${(props) => props.color && `color: ${props.color};`}
+
+  & a {
+    color: #0070f3;
+    text-decoration: none;
+  }
+
+  & a:hover,
+  & a:focus,
+  & a:active {
+    text-decoration: underline;
+  }
+`;
+
 export const Description = styled.div`
   text-align: center;
   line-height: 1.5;

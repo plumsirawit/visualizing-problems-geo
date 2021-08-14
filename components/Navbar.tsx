@@ -71,6 +71,12 @@ export const Navbar = () => {
         >
           P3
         </NavbarItem>
+        <NavbarItem
+          href="/conclusion"
+          color={router.route === "/conclusion" ? "#15ff79" : undefined}
+        >
+          Conclusion
+        </NavbarItem>
       </NavbarInner>
     </NavbarWrapper>
   );

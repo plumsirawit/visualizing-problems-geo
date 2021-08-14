@@ -80,6 +80,12 @@ export default function Home() {
                 <td>timeismoney</td>
               </Link>
             </tr>
+            <tr>
+              <td></td>
+              <Link href="/conclusion">
+                <td>Conclusion</td>
+              </Link>
+            </tr>
           </tbody>
         </MainTable>
       </Panel>
