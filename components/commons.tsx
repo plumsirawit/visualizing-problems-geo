@@ -86,3 +86,15 @@ export const ResourceLink = ({ url }: IResourceLinkProps) => (
     <Code>{url}</Code>
   </a>
 );
+
+export const Input = styled.input`
+  font-size: 1.5rem;
+  width: 5rem;
+  font-family: "Roboto Mono", monospace;
+  outline: none;
+  background-color: #383f46;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+`;

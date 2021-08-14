@@ -1,12 +1,23 @@
 import Head from "next/head";
 import { useState } from "react";
 import { Container, Description, Title } from "../components/commons";
+import { DataHandler } from "../components/p1/DataHandler";
 import { Navbar } from "../components/Navbar";
+import { RubberBand } from "../components/p1/RubberBand";
+import { Visual } from "../components/p1/Visual";
+import { Weight } from "../components/p1/Weight";
 import { Panel } from "../components/Panel";
 import { ShowSolution } from "../components/ShowSolution";
 
 export default function P1() {
   const [showSolution, setShowSolution] = useState<boolean>(false);
+  const [points, setPoints] = useState<[number, number][]>([
+    [50, 70],
+    [80, 10],
+    [100, 30],
+  ]);
+  const [A, setA] = useState<number>(1);
+  const [B, setB] = useState<number>(1);
   return (
     <Container>
       <Navbar />
@@ -69,16 +80,20 @@ export default function P1() {
       {showSolution && (
         <>
           <Panel>
+            <Title color="#15ff79">Example Data</Title>
+            <DataHandler points={points} setPoints={setPoints} />
+          </Panel>
+          <Panel backgroundColor="#181a20">
             <Title color="#15ff79">Let's visualize in 2D</Title>
-            {/* 2D Board Component */}
+            <Visual points={points} />
           </Panel>
           <Panel>
             <Title color="#15ff79">Now let's assign the weight</Title>
-            {/* 2D Board Component */}
+            <Weight points={points} A={A} B={B} setA={setA} setB={setB} />
           </Panel>
-          <Panel>
+          <Panel backgroundColor="#181a20">
             <Title color="#15ff79">Add the rubber band</Title>
-            {/* 2D Board Component */}
+            <RubberBand points={points} />
           </Panel>
         </>
       )}
