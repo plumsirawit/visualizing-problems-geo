@@ -56,7 +56,7 @@ export const Description = styled.div`
   max-width: 70vmin;
   margin-top: 1em;
   margin-bottom: 1em;
-  & p {
+  & .small {
     font-size: 1rem;
     margin-bottom: 2rem;
   }

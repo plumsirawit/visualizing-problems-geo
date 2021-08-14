@@ -33,9 +33,9 @@ export default function P1() {
       <Panel backgroundColor="#383f46">
         <Title>Problem Statement</Title>
         <Description>
-          <p>
-            You're a teacher and you've hosted two exams for your class of 100
-            students in total. The first exam is a mathematics exam and the
+          <p className="small">
+            You're a teacher and you've hosted two exams for your class of N =
+            100 students in total. The first exam is a mathematics exam and the
             second one is science. Each student will take both of the exams and
             get a score of between 0 and 100 (inclusive) each. At the end of the
             exams, you're ranking the students from the highest score to the
@@ -45,14 +45,14 @@ export default function P1() {
             two subjects. Can you assign the weights such that the first student
             got the first rank?
           </p>
-          <p>
+          <p className="small">
             For example (in a smaller classroom), suppose there are only 3
             students. The first student got 50/100 in mathematics and 70/100 in
             science. The second student got 80/100 in mathematics and 10/100 in
             science. And the third student got 100/100 in mathematics and 30/100
             in science.
           </p>
-          <p>
+          <p className="small">
             If the weights are 1 for mathematics and 1 for science, then the
             third student, who got a total of 130, ranked the top. However, if
             the weights are 1 for mathematics and 2 for science, then the first
@@ -60,7 +60,7 @@ export default function P1() {
             possible to assign the weights such that the first student got the
             first rank.
           </p>
-          <p>
+          <p className="small">
             In some scenarios, it will be impossible to assign the weights such
             that the first student got the first rank. Can you describe an
             algorithm or a thinking pattern to check whether it is possible or
