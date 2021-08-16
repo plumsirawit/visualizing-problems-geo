@@ -8,6 +8,7 @@ import { Visual } from "../components/p1/Visual";
 import { Weight } from "../components/p1/Weight";
 import { Panel } from "../components/Panel";
 import { ShowSolution } from "../components/ShowSolution";
+import { Animation } from "../components/p1/Animation";
 
 export default function P1() {
   const [showSolution, setShowSolution] = useState<boolean>(false);
@@ -94,6 +95,10 @@ export default function P1() {
             <Weight points={points} A={A} B={B} setA={setA} setB={setB} />
           </Panel>
           <Panel backgroundColor="#181a20">
+            <Title color="#15ff79">One way of processing things</Title>
+            <Animation points={points} />
+          </Panel>
+          <Panel>
             <Title color="#15ff79">Add the rubber band</Title>
             <RubberBand points={points} />
           </Panel>
