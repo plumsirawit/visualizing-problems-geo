@@ -16,6 +16,7 @@ import { Panel } from "../components/Panel";
 import { ShowSolution } from "../components/ShowSolution";
 import solutionCode from "../components/p3/code.cpp";
 import { SourceCode } from "../components/SourceCode";
+import { Animation } from "../components/p3/Animation";
 
 export default function P3() {
   const [showSolution, setShowSolution] = useState<boolean>(false);
@@ -107,10 +108,14 @@ export default function P3() {
             <ConvexHull nodeCount={nodeCount} edges={edges} />
           </Panel>
           <Panel>
+            <Title color="#15ff79">The algorithm in action</Title>
+            <Animation nodeCount={nodeCount} edges={edges} />
+          </Panel>
+          <Panel backgroundColor="#181a20">
             <Title color="#15ff79">My solution in C++</Title>
             <SourceCode>{solutionCode}</SourceCode>
           </Panel>
-          <Panel backgroundColor="#181a20">
+          <Panel>
             <Title color="#15ff79">Official Editorial</Title>
             <Description>
               <ResourceLink url="http://www.boi2011.ro/resurse/tasks/timeismoney-sol.pdf" />
