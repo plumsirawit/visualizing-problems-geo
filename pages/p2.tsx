@@ -136,21 +136,113 @@ export default function P2() {
                 for a given <TeX>d</TeX>, there exists a feasible hexagon or
                 not. Then we can binary search through <TeX>d</TeX>.
               </p>
-              <p>
-                It turns out we can go through each point and try to track
-                centers <TeX>(x_t, y_t)</TeX> of hexagons that are feasible
-                (i.e. they cover all the points). Then, intersect all these sets
-                of feasible hexagon centers, for each input point. The result
-                will be a set of hexagon centers that are feasible for all
-                points.
-              </p>
             </Description>
           </Panel>
           <Panel>
+            <Title color="#15ff79">
+              Is there a feasible hexagon of size <TeX>d</TeX>?
+            </Title>
+            <Description>
+              <p>
+                For each point <TeX>(x_i, y_i)</TeX>, the necessary and
+                sufficient condition of <TeX>(x_t, y_t)</TeX> to be the center
+                of a hexagon containing point <TeX>(x_i, y_i)</TeX> is the
+                following system of six inequalities bouding the hexagon:
+                <ul>
+                  <li>
+                    <TeX>x_t - d \leq x_i</TeX>
+                  </li>
+                  <li>
+                    <TeX>x_i \leq x_t + d</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t - d \leq y_i</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_i \leq y_t + d</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t - x_t - d \leq y_i - x_i</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_i - x_i \leq y_t - x_t + d</TeX>
+                  </li>
+                </ul>
+                which, by a few algebraic manipulations, gives:
+                <ul>
+                  <li>
+                    <TeX>x_t \leq x_i + d</TeX>
+                  </li>
+                  <li>
+                    <TeX>x_t \geq x_i - d</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t \leq y_i + d</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t \geq y_i - d</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t - x_t \leq y_i - x_i + d</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t - x_t \geq y_i - x_i - d</TeX>
+                  </li>
+                </ul>
+                that is
+                <ul>
+                  <li>
+                    <TeX>x_t \in [x_i - d, x_i + d]</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t \in [y_i - d, y_i + d]</TeX>
+                  </li>
+                  <li>
+                    <TeX>y_t - x_t \in [y_i - x_i - d, y_i - x_i + d]</TeX>
+                  </li>
+                </ul>
+                so we may define
+                <ul>
+                  <li>
+                    <TeX>A_i = [x_i - d, x_i + d]</TeX>
+                  </li>
+                  <li>
+                    <TeX>B_i = [y_i - d, y_i + d]</TeX>
+                  </li>
+                  <li>
+                    <TeX>C_i = [y_i - x_i - d, y_i - x_i + d]</TeX>
+                  </li>
+                </ul>
+                as sets of possible values of <TeX>(x_t, y_t)</TeX> for each
+                point <TeX>(x_i, y_i)</TeX>
+              </p>
+              <p>
+                It turns out we can go through each point <TeX>(x_i, y_i)</TeX>{" "}
+                and try to track the sets <TeX>A_i, B_i</TeX> and <TeX>C_i</TeX>
+                . Then, intersect all these sets of feasible hexagon centers,
+                for each input point, that is, find{" "}
+                <ul>
+                  <li>
+                    <TeX>{"A = \\bigcap\\limits_{i=1}^{N}{A_i}"}</TeX>
+                  </li>
+                  <li>
+                    <TeX>{"B = \\bigcap\\limits_{i=1}^{N}{B_i}"}</TeX>
+                  </li>
+                  <li>
+                    <TeX>{"C = \\bigcap\\limits_{i=1}^{N}{C_i}"}</TeX>
+                  </li>
+                </ul>
+                The satisfiable hexagon centers <TeX>(x_t, y_t)</TeX> will be
+                the ones such that <TeX>x_t \in A, y_t \in B</TeX> and{" "}
+                <TeX>y_t - x_t \in C</TeX>
+              </p>
+            </Description>
+          </Panel>
+          <Panel backgroundColor="#181a20">
             <Title color="#15ff79">My solution in C++</Title>
             <SourceCode>{solutionCode}</SourceCode>
           </Panel>
-          <Panel backgroundColor="#181a20">
+          <Panel>
             <Title color="#15ff79">Official Editorial</Title>
             <Description>
               <ResourceLink url="https://codeforces.com/blog/entry/81355" />

@@ -97,7 +97,7 @@ export default function P3() {
             <Scatter nodeCount={nodeCount} edges={edges} />
           </Panel>
           <Panel>
-            <Title color="#15ff79">Indifference Curves</Title>
+            <Title color="#15ff79">Hyperbolas according to the product</Title>
             <IndifferenceCurve nodeCount={nodeCount} edges={edges} />
           </Panel>
           <Panel backgroundColor="#181a20">
