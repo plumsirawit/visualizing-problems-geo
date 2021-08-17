@@ -61,25 +61,12 @@ const innerAnimationLoop = (
   height: number,
   element: HTMLDivElement,
   points: [number, number][],
-  A = 0,
-  B = 100,
-  C: number = undefined,
-  next: (
-    functionPlot: any,
-    width: number,
-    height: number,
-    element: HTMLDivElement,
-    points: [number, number][],
-    A: number,
-    B: number,
-    final: () => void
-  ) => void,
+  A: number,
+  B: number,
+  C: number,
+  oldLines: Record<string, unknown>[],
   final: () => void
 ) => {
-  if (C === undefined) {
-    C = A * 100 + B * 100;
-  }
-  element.innerHTML = "";
   functionPlot({
     // @ts-ignore
     target: element,
@@ -104,27 +91,11 @@ const innerAnimationLoop = (
       B === 0
         ? { fn: `x - ${C / A}`, fnType: "implicit" as "implicit" }
         : { fn: `${-A / B} * x + ${C / B}` },
+      ...oldLines,
     ],
   });
   if (points.filter((point) => A * point[0] + B * point[1] >= C).length > 0) {
-    if (A !== 0 && B === 0) {
-      final();
-      return;
-    }
-    setTimeout(
-      () =>
-        next(
-          functionPlot,
-          width,
-          height,
-          element,
-          points,
-          A + 10,
-          B - 10,
-          final
-        ),
-      100
-    );
+    final();
   } else {
     setTimeout(
       () =>
@@ -137,7 +108,7 @@ const innerAnimationLoop = (
           A,
           B,
           C - 50,
-          next,
+          oldLines,
           final
         ),
       20
@@ -145,7 +116,32 @@ const innerAnimationLoop = (
   }
 };
 
-const animationLoop = (
+const createLineSweeper =
+  (
+    functionPlot: any,
+    width: number,
+    height: number,
+    element: HTMLDivElement,
+    points: [number, number][]
+  ) =>
+  (A: number, B: number, oldLines: Record<string, unknown>[]) => {
+    return new Promise<void>((res) => {
+      innerAnimationLoop(
+        functionPlot,
+        width,
+        height,
+        element,
+        points,
+        A,
+        B,
+        A * 100 + B * 100,
+        oldLines,
+        res
+      );
+    });
+  };
+
+const animationLoop = async (
   functionPlot: any,
   width: number,
   height: number,
@@ -153,13 +149,33 @@ const animationLoop = (
   points: [number, number][],
   A = 0,
   B = 100,
+  lineSweeper: (
+    A: number,
+    B: number,
+    oldLines: Record<string, unknown>[]
+  ) => Promise<void>,
   final: () => void
 ) => {
   element.innerHTML = "";
-  const point = points.sort(
-    (a, b) => A * b[0] + B * b[1] - (A * a[0] + B * a[1])
-  )[0];
-  const C = A * point[0] + B * point[1];
+  const oldLines = [];
+  while (B >= 0) {
+    await lineSweeper(A, B, oldLines);
+    const point = points.sort(
+      (a, b) => A * b[0] + B * b[1] - (A * a[0] + B * a[1])
+    )[0];
+    const C = A * point[0] + B * point[1];
+    oldLines.push(
+      B === 0
+        ? {
+            fn: `x - ${C / A}`,
+            fnType: "implicit" as "implicit",
+            color: "#15ff79",
+          }
+        : { fn: `${-A / B} * x + ${C / B}`, color: "#15ff79" }
+    );
+    A += 10;
+    B -= 10;
+  }
   functionPlot({
     // @ts-ignore
     target: element,
@@ -181,34 +197,10 @@ const animationLoop = (
         fnType: "points",
         graphType: "scatter",
       },
-      A === 0 && B === 0
-        ? undefined
-        : B === 0
-        ? {
-            fn: `x - ${C / A}`,
-            fnType: "implicit" as "implicit",
-          }
-        : {
-            fn: `${-A / B} * x + ${C / B}`,
-          },
+      ...oldLines,
     ],
   });
-  setTimeout(
-    () =>
-      innerAnimationLoop(
-        functionPlot,
-        width,
-        height,
-        element,
-        points,
-        A,
-        B,
-        undefined,
-        animationLoop,
-        final
-      ),
-    500
-  );
+  final();
 };
 
 const setupScene = (
@@ -266,7 +258,7 @@ export const Animation = ({ points }: IAnimationProps) => {
     }
     setButtonDisabled(true);
     import("function-plot").then((module) =>
-      innerAnimationLoop(
+      animationLoop(
         module.default,
         width,
         height,
@@ -274,8 +266,7 @@ export const Animation = ({ points }: IAnimationProps) => {
         points,
         0,
         100,
-        undefined,
-        animationLoop,
+        createLineSweeper(module.default, width, height, ref.current, points),
         () => setButtonDisabled(false)
       )
     );

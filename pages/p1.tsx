@@ -13,7 +13,7 @@ import { Animation } from "../components/p1/Animation";
 export default function P1() {
   const [showSolution, setShowSolution] = useState<boolean>(false);
   const [points, setPoints] = useState<[number, number][]>([
-    [30, 50],
+    [20, 60],
     [60, 10],
     [80, 20],
   ]);
@@ -50,7 +50,7 @@ export default function P1() {
           </p>
           <p className="small">
             For example (in a smaller classroom), suppose there are only 3
-            students. The first student got 30/100 in mathematics and 50/100 in
+            students. The first student got 20/100 in mathematics and 60/100 in
             science. The second student got 60/100 in mathematics and 10/100 in
             science. And the third student got 80/100 in mathematics and 20/100
             in science.
