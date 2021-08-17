@@ -150,43 +150,25 @@ export default function P2() {
                 following system of six inequalities bouding the hexagon:
                 <ul>
                   <li>
-                    <TeX>x_t - d \leq x_i</TeX>
+                    <TeX>x_t - d \leq x_i \leq x_t + d</TeX>
                   </li>
                   <li>
-                    <TeX>x_i \leq x_t + d</TeX>
+                    <TeX>y_t - d \leq y_i \leq y_t + d</TeX>
                   </li>
                   <li>
-                    <TeX>y_t - d \leq y_i</TeX>
-                  </li>
-                  <li>
-                    <TeX>y_i \leq y_t + d</TeX>
-                  </li>
-                  <li>
-                    <TeX>y_t - x_t - d \leq y_i - x_i</TeX>
-                  </li>
-                  <li>
-                    <TeX>y_i - x_i \leq y_t - x_t + d</TeX>
+                    <TeX>y_t - x_t - d \leq y_i - x_i \leq y_t - x_t + d</TeX>
                   </li>
                 </ul>
                 which, by a few algebraic manipulations, gives:
                 <ul>
                   <li>
-                    <TeX>x_t \leq x_i + d</TeX>
+                    <TeX>x_i - d \leq x_t \leq x_i + d</TeX>
                   </li>
                   <li>
-                    <TeX>x_t \geq x_i - d</TeX>
+                    <TeX>y_i - d \leq y_t \leq y_i + d</TeX>
                   </li>
                   <li>
-                    <TeX>y_t \leq y_i + d</TeX>
-                  </li>
-                  <li>
-                    <TeX>y_t \geq y_i - d</TeX>
-                  </li>
-                  <li>
-                    <TeX>y_t - x_t \leq y_i - x_i + d</TeX>
-                  </li>
-                  <li>
-                    <TeX>y_t - x_t \geq y_i - x_i - d</TeX>
+                    <TeX>y_i - x_i - d \leq y_t - x_t \leq y_i - x_i + d</TeX>
                   </li>
                 </ul>
                 that is
