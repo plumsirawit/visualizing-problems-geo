@@ -57,9 +57,9 @@ export default function P1() {
           </p>
           <p className="small">
             If the weights are 1 for mathematics and 1 for science, then the
-            third student, who got a total of 130, ranked the top. However, if
+            third student, who got a total of 100, ranked the top. However, if
             the weights are 1 for mathematics and 2 for science, then the first
-            student, who got a total of 190, ranked the top. Therefore, it is
+            student, who got a total of 140, ranked the top. Therefore, it is
             possible to assign the weights such that the first student got the
             first rank.
           </p>
